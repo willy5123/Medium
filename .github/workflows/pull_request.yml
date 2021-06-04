@@ -1,13 +1,14 @@
 name: Pull-Request Run
 
-on:
-  pull_request:
-    branches: [master]
+on: push
 
 env:
   DEVOPS_DIR: devops
 
 jobs:
+  hello-world:
+    name: Hello world
+    runs-on: ubuntu-latest
     steps:
     - name: Check-out devops repository
       uses: actions/checkout@v2
@@ -18,6 +19,6 @@ jobs:
 
     - name: Hello World
       run: python ${{ env.CI_SCRIPT_DIR }}\hello_world.py
-      shell: cmd
+      shell: sh
 
 
