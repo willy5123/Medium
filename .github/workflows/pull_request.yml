@@ -1,0 +1,23 @@
+name: Pull-Request Run
+
+on:
+  pull_request:
+    branches: [master]
+
+env:
+  DEVOPS_DIR: devops
+
+jobs:
+    steps:
+    - name: Check-out devops repository
+      uses: actions/checkout@v2
+      with:
+        repository: Devops
+        token: ${{ secrets.GITHUB_TOKEN }}
+        path: ${{ env.DEVOPS_DIR }}
+
+    - name: Hello World
+      run: python ${{ env.CI_SCRIPT_DIR }}\hello_world.py
+      shell: cmd
+
+
