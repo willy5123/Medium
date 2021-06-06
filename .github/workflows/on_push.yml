@@ -1,4 +1,4 @@
-name: Pull-Request Run
+name: On Push Run
 
 on: push
 
